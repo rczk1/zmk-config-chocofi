@@ -24,7 +24,7 @@
 
         escape {
             bindings = <&kp ESCAPE>;
-            key-positions = <30 0>;
+            key-positions = <0 31>;
             layers = <0 1>;
         };
     };
