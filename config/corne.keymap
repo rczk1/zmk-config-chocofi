@@ -5,89 +5,85 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 &mt {
-	tapping-term-ms = <175>;
-	flavor = "tap-preferred";
+    tapping-term-ms = <175>;
+    flavor = "tap-preferred";
 };
 
 / {
-	chosen {
-		zmk,physical-layout = &foostan_corne_5col_layout;
-		zmk,matrix_transform = &five_column_transform;
-	};
+    chosen {
+        zmk,physical-layout = &foostan_corne_5col_layout;
+        zmk,matrix_transform = &five_column_transform;
+    };
 
-	combos {
-		compatible = "zmk,combos";
+    combos {
+        compatible = "zmk,combos";
 
-		escape {
-			bindings = <&kp ESCAPE>;
-			key-positions = <30 0>;
-		};
+        escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <30 0>;
+            layers = <0 1>;
+        };
+    };
 
-		delete {
-			bindings = <&kp DELETE>;
-			key-positions = <30 25>;
-		};
-	};
+    keymap {
+        compatible = "zmk,keymap";
 
-	keymap {
-		compatible = "zmk,keymap";
+        colemakdh {
+            bindings = <
+  &kp Q           &kp W           &kp F             &kp P               &kp B      &kp J    &kp L                &kp U              &kp Y            &kp SEMICOLON
+  &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T  &kp G      &kp M    &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O
+  &kp Z           &kp X           &kp C             &kp D               &kp V      &kp K    &kp H                &kp COMMA          &kp DOT          &kp FSLH
+                                  &mo 3             &kp SPACE           &kp TAB    &kp RET  &kp BACKSPACE        &mo 4
+            >;
+        };
 
-		colemakdh {
-			bindings = <
-				&kp Q           &kp W           &kp F             &kp P               &kp B           &kp J           &kp L                &kp U              &kp Y            &kp SEMICOLON
-				&mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T  &kp G           &kp M           &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O
-				&kp Z           &kp X           &kp C             &kp D               &kp V           &kp K           &kp H                &kp COMMA          &kp DOT          &kp FSLH
-				               &mo 3           &kp SPACE         &kp TAB            &kp RET          &kp BACKSPACE   &mo 4
-			>;
-		};
+        qwerty {
+            bindings = <
+  &kp Q           &kp W           &kp E             &kp R               &kp T      &kp Y      &kp U                &kp I              &kp O            &kp P
+  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G      &kp H      &mt RIGHT_CONTROL J  &mt RIGHT_SHIFT K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMICOLON
+  &kp Z           &kp X           &kp C             &kp V               &kp B      &kp N      &kp M                &kp COMMA          &kp DOT          &kp FSLH
+                                  &mo 3             &kp SPACE           &kp TAB    &kp ENTER  &kp BACKSPACE        &mo 4
+            >;
+        };
 
-		qwerty {
-			bindings = <
-				&kp Q           &kp W           &kp E             &kp R               &kp T           &kp Y           &kp U                &kp I              &kp O            &kp P
-				&mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G           &kp H           &mt RIGHT_CONTROL J  &mt RIGHT_SHIFT K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMICOLON
-				&kp Z           &kp X           &kp C             &kp V               &kp B           &kp N           &kp M                &kp COMMA          &kp DOT          &kp FSLH
-				               &mo 3           &kp SPACE         &kp TAB            &kp ENTER       &kp BACKSPACE   &mo 4
-			>;
-		};
+        game {
+            bindings = <
+  &kp ESCAPE      &kp Q  &kp W  &kp E      &kp R      &kp T      &kp Y          &kp U  &kp I      &kp O
+  &kp LEFT_SHIFT  &kp A  &kp S  &kp D      &kp F      &kp G      &kp H          &kp J  &kp K      &kp L
+  &kp LCTRL       &kp Z  &kp X  &kp C      &kp V      &kp B      &kp N          &kp M  &kp COMMA  &kp PERIOD
+                         &mo 3  &kp SPACE  &kp TAB    &kp ENTER  &kp BACKSPACE  &mo 4
+            >;
+        };
 
-		game {
-			bindings = <
-				&kp ESCAPE      &kp Q           &kp W           &kp E      &kp R      &kp T      &kp Y          &kp U          &kp I          &kp O
-				&kp LEFT_SHIFT  &kp A           &kp S           &kp D      &kp F      &kp G      &kp H          &kp J          &kp K          &kp L
-				&kp LCTRL       &kp Z           &kp X           &kp C      &kp V      &kp B      &kp N          &kp M          &kp COMMA      &kp PERIOD
-				               &mo 3           &kp SPACE      &kp TAB    &kp ENTER  &kp BACKSPACE  &mo 4
-			>;
-		};
+        symbol {
+            bindings = <
+  &trans        &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)  &trans             &trans        &kp LS(AMPS)  &kp LS(STAR)  &kp LS(CARET)  &trans
+  &kp LS(EXCL)  &kp LS(PLUS)  &kp LS(LPAR)   &kp LS(RPAR)  &kp LS(TILDE)      &kp LS(PIPE)  &kp MINUS     &kp EQUAL     &kp LS(UNDER)  &kp SQT
+  &kp DEL       &kp BSLH      &kp LS(LBRC)   &kp LS(RBRC)  &kp PRINTSCREEN    &kp GRAVE     &kp LBKT      &kp RBKT      &kp LS(PRCNT)  &trans
+                              &trans         &trans        &trans             &trans        &trans        &mo 5
+            >;
+        };
 
-		symbol {
-			bindings = <
-				&trans        &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)      &trans         &trans        &kp LS(AMPS)  &kp LS(STAR)   &kp LS(CARET) &trans
-				&kp LS(EXCL)  &kp LS(PLUS)  &kp LS(LPAR)   &kp LS(RPAR)      &kp LS(TILDE)  &kp LS(PIPE)  &kp MINUS     &kp EQUAL      &kp LS(UNDER) &kp SQT
-				&kp DEL       &kp BSLH      &kp LS(LBRC)   &kp LS(RBRC)      &kp PRINTSCREEN &kp GRAVE    &kp LBKT      &kp RBKT       &kp LS(PRCNT) &trans
-				             &trans         &trans        &trans           &trans          &trans        &mo 5
-			>;
-		};
+        navigation {
+            bindings = <
+  &trans  &trans      &trans    &trans   &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW
+  &kp N1  &kp N2      &kp N3    &kp N4   &kp N5    &kp N6  &kp N7          &kp N8          &kp N9        &kp N0
+  &trans  &kp INSERT  &kp HOME  &kp END  &trans    &trans  &kp CAPSLOCK    &kp PAGE_DOWN   &kp PG_UP     &trans
+                      &mo 5     &trans   &trans    &trans  &trans          &trans
+            >;
+        };
 
-		navigation {
-			bindings = <
-				&trans  &trans      &trans      &trans      &trans       &trans      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW
-				&kp N1  &kp N2      &kp N3      &kp N4      &kp N5       &kp N6      &kp N7          &kp N8          &kp N9          &kp N0
-				&trans  &kp INSERT  &kp HOME    &kp END     &trans       &trans      &kp CAPSLOCK    &kp PAGE_DOWN   &kp PG_UP       &trans
-				         &mo 5      &trans      &trans      &trans       &trans      &trans
-			>;
-		};
-
-		function {
-			bindings = <
-				&trans  &bt BT_CLR  &trans        &trans      &trans       &trans      &trans        &trans        &trans        &trans
-				&kp F1  &kp F2      &kp F3        &kp F4      &kp F5       &kp F6      &kp F7        &kp F8        &kp F9        &kp F10
-				&kp F11 &bt BT_SEL 0  &bt BT_PRV  &bt BT_NXT  &trans       &trans      &to 0         &to 1         &to 2         &kp F12
-				         &trans      &trans        &trans      &trans       &trans      &trans
-			>;
-		};
-	};
+        function {
+            bindings = <
+  &trans   &bt BT_CLR    &trans      &trans      &trans    &trans  &trans  &trans  &trans  &trans
+  &kp F1   &kp F2        &kp F3      &kp F4      &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+  &kp F11  &bt BT_SEL 0  &bt BT_PRV  &bt BT_NXT  &trans    &trans  &to 0   &to 1   &to 2   &kp F12
+                         &trans      &trans      &trans    &trans  &trans  &trans
+            >;
+        };
+    };
 };
