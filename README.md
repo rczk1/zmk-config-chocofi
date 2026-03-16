@@ -3,4 +3,8 @@
 - ldsa keycaps
 - nice!nano v2
 - nice!view
-<img width="788" height="2040" alt="my_keymap" src="https://github.com/user-attachments/assets/2d166f56-a358-4343-a0df-c503a51634c7" />
+- visuals: ![keymap-drawer](https://keymap-drawer.streamlit.app/)
+- credit: ![edygar](https://github.com/edygar/chocofi-zmk-config)
+
+
+![my_keymap](https://github.com/user-attachments/assets/a8836a13-ce6f-4dc0-ad0a-246808392c2c)
